@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&display=swap');
+:root{
+    --mainColor:#0d1117;
+    --scandColor:#ffffff;
+    --cardColor:rgb(48 45 45 / 72%);
+    --linerColor:#e7e7e723;
+    --overLayColor:rgba(0,0,0,0.481);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+}
+body{
+    font-family: "cairo",sans-serif;
+    /* background: url('img/background.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;  */
+    background: #142847;
+    color: var(--scandColor);
+}
+.app{
+    padding: 20px;
+}
+.app .header h1{
+    text-align: center;
+    text-shadow: 2px 2px 20px #000;
+}
+.app .cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,250px);
+    gap: 10px;
+    margin: 16px;
+}
+.app .card-style{
+    background-color: var(--cardColor);
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+.app .cards .add {
+    display: grid;
+    place-items: center;
+}
+.app .cards .plus{
+    display: grid;
+    background-color: #0d1117;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    place-items: center;
+    transition: all 1s ease;
+}
+.app .cards .plus:hover{
+    transform: scale(1.1);
+}
+.app .cards .plus i{
+    font-size: 30px;
+    cursor: pointer;
+}
+.app .cards .card_content{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.app .cards .card .card_details{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--linerColor);
+    margin: 10px 0px;
+    padding: 2px 0px;
+    align-items: center;
+
+}
+.app .cards .card .card_details > span {
+    font-size: 12px;
+}
+
+.app .cards .card .card_details .menu-app{
+    position: relative;
+}
+
+.app .cards .card .card_details .menu-app  > i{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.app .cards .card .card_details .menu-app .menu{
+    background-color: #000;
+    position: absolute;
+    width: 100px;
+    padding: 10px 0px;
+    padding: 10px 0px;
+    border-radius: 4px;
+    left: auto;
+    top: auto;
+    display: grid;
+    gap: 5px;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    z-index: 6;
+    transform: scale(0);
+    box-shadow: 2px 12px 20px 7px #716565b5;
+    transition: all 300ms linear;
+ 
+}
+.app .cards .card .card_details .menu-app:hover .menu{
+    transform: scale(1);
+}
+
+
+
+.app .cards .card .card_details .menu-app .menu li{
+    cursor: pointer;
+    padding: 7px 10px;
+    transition: all 200ms linear;
+}
+.app .cards .card .card_details .menu-app .menu  li:hover{
+    background-color: var(--linerColor);
+    
+} 
+
+.popup-app{
+    position: fixed;
+    inset: 0;
+    background-color: var(--overLayColor);
+    display: grid;
+    place-items: center;
+    z-index: 100;
+    display: none;
+}
+.popup-app.open{
+    display: grid;
+}
+.popup-app .popup{
+    background-color: rgb(32, 32, 32);
+    width: 340px;
+    padding: 10px 20px;
+    border-radius: 8px;
+} 
+.popup-app .popup h4{
+    font-size: 24px;
+}
+.popup-app .popup .header_popup{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.popup-app .popup .header_popup i{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.popup-app .popup form{
+    margin: 15px 0px;
+}
+
+.popup-app .popup form > div{
+    margin: 15px 0px;
+}
+.popup-app .popup form > div :where(input , textarea){
+    display: block;
+    width: 100%;
+    outline-width:0 ;
+    padding: 7px;
+    background-color: initial;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: var(--scandColor);
+    font-size: 22px;
+
+}
+.popup-app .popup form > div textarea{
+    resize: none;
+    height: 120px;
+}
+.popup-app .popup form  button {
+    width: 100%;
+    padding: 10px 0px;
+    border-width: 0;
+    background-color: var(--cardColor);
+    color: var(--scandColor);
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 22px;
+    transition: all 400ms ease;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px #000000;
+    
+}
+.popup-app .popup form  button:hover{
+    background-color: var(--scandColor);
+    color: var(--cardColor);
+}
+
+
+@media screen and (max-width: 768px) {
+    /* تغييرات تنفيذها عندما يكون عرض الشاشة أصغر من أو يساوي 768 بكسل */
+    .app .header h1 {
+        font-size: 24px; /* تغيير حجم العنوان */
+    }
+
+    .app .cards {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* تعديل تخطيط الكروت */
+    }
+
+    .popup-app .popup {
+        width: 90%; /* جعل عرض البوب ​​أب أكبر بشكل عام */
+    }
+}
